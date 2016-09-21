@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MAppMedia</string>
-    <string name="action_settings">Settings</string>
+    <string name="main_searchview_title">Suche</string>
+    <string name="all_settings_title">Einstellungen</string>
+
+
+    <string name="main_preference_ftp_category_title">FTP-Einstellungen</string>
 </resources>
