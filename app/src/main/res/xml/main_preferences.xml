@@ -5,7 +5,35 @@
     <PreferenceCategory
         android:title="@string/main_preference_ftp_category_title">
 
+        <EditTextPreference
+            android:title="@string/main_preference_ftp_host_title"
+            android:summary="@string/main_preference_ftp_host_summary"
+            android:key="key_ftp_host"
+            android:inputType="text" />
 
+        <EditTextPreference
+            android:title="@string/main_preference_ftp_user_title"
+            android:summary="@string/main_preference_ftp_user_summary"
+            android:key="key_ftp_user"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:title="@string/main_preference_ftp_password_title"
+            android:summary="@string/main_preference_ftp_password_summary"
+            android:key="key_ftp_password"
+            android:inputType="textPassword" />
+
+        <EditTextPreference
+            android:title="@string/main_preference_ftp_remote_title"
+            android:summary="@string/main_preference_ftp_remote_summary"
+            android:key="key_ftp_remote"
+            android:inputType="text" />
+
+        <CheckBoxPreference
+            android:title="@string/main_preference_ftp_load_title"
+            android:summary="@string/main_preference_ftp_load_summary"
+            android:key="key_ftp_load"
+            android:defaultValue="false" />
 
 
     </PreferenceCategory>

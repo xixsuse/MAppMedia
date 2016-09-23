@@ -28,5 +28,4 @@ dependencies {
     compile 'com.android.support:design:23.3.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/commons-net-3.5.jar')
-    compile files('libs/commons-net-3.5-sources.jar')
 }

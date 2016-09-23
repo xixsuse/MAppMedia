@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_side_index_text">#FFFFFF</color>
+
+    <color name="color_age_restriction_0">#888888</color>
+    <color name="color_age_restriction_6">#FFFF00</color>
+    <color name="color_age_restriction_12">#00AA00</color>
+    <color name="color_age_restriction_16">#0000FF</color>
+    <color name="color_age_restriction_18">#FF0000</color>
 </resources>

@@ -3,6 +3,31 @@
     <string name="main_searchview_title">Suche</string>
     <string name="all_settings_title">Einstellungen</string>
 
+    <string name="main_age_restriction_value">FSK %1$d</string>
+    <string name="main_running_time_value">%1$d Minuten</string>
+
 
     <string name="main_preference_ftp_category_title">FTP-Einstellungen</string>
+
+    <string name="main_preference_ftp_host_title">Host</string>
+    <string name="main_preference_ftp_host_summary">Legt die Hostadresse des FTP-Servers fest</string>
+
+    <string name="main_preference_ftp_user_title">Benutzer</string>
+    <string name="main_preference_ftp_user_summary">Legt den FTP-Benutzer fest</string>
+
+    <string name="main_preference_ftp_password_title">Passwort</string>
+    <string name="main_preference_ftp_password_summary">Legt das Passwort des FTP-Benutzers fest</string>
+
+    <string name="main_preference_ftp_remote_title">Zieldatei</string>
+    <string name="main_preference_ftp_remote_summary">Legt die Zieldatei auf dem FTP-Server fest</string>
+
+    <string name="main_preference_ftp_load_title">Laden beim Starten</string>
+    <string name="main_preference_ftp_load_summary">
+        Lädt die Zieldatei vom angegebenen FTP-Server herunter und lädt die Datenbank, sobald die Applikation gestartet wurde
+    </string>
+
+
+    <string name="main_media_add_dialog_title">Neues Medium</string>
+    <string name="main_media_add_dialog_location_hint">Aufbewahrungsort</string>
+
 </resources>

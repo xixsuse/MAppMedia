@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="main_media_add_dialog_type_array">
+        <item>DVD</item>
+        <item>BD</item>
+        <item>CD</item>
+        <item>Vinyl</item>
+    </string-array>
+
+
+</resources>

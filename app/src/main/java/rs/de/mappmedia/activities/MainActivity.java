@@ -2,21 +2,28 @@ package rs.de.mappmedia.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import rs.de.mappmedia.R;
 import rs.de.mappmedia.adapters.MediaFragmentPagerAdapter;
-import rs.de.mappmedia.ftp.FTPDownloader;
-import rs.de.mappmedia.listeners.SearchViewQueryTextListener;
+import rs.de.mappmedia.database.DatabaseAccess;
+import rs.de.mappmedia.database.models.Media;
+import rs.de.mappmedia.database.models.Movie;
+import rs.de.mappmedia.ftp.FTPDownloadAsyncTask;
+import rs.de.mappmedia.util.Util;
 
-public class MainActivity extends AppCompatActivity implements FTPDownloader.OnDownloadDoneListener {
+public class MainActivity extends AppCompatActivity implements FTPDownloadAsyncTask.OnStatusListener {
+
+    private MediaFragmentPagerAdapter mediaFragmentPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +35,21 @@ public class MainActivity extends AppCompatActivity implements FTPDownloader.OnD
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager_main);
         if (viewPager != null) {
-            MediaFragmentPagerAdapter mediaFragmentPagerAdapter = new MediaFragmentPagerAdapter(getSupportFragmentManager());
+            mediaFragmentPagerAdapter = new MediaFragmentPagerAdapter(getSupportFragmentManager());
             viewPager.setAdapter(mediaFragmentPagerAdapter);
         }
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout_main);
         if (tabLayout != null) {
             tabLayout.setupWithViewPager(viewPager);
+            tabLayout.setOnTabSelectedListener(mediaFragmentPagerAdapter);
         }
 
-        new FTPDownloader(this).execute("[host]", "[user]", "[password]", "[remote_file]", "[local_file]");
+        FloatingActionButton floatingActionButton = (FloatingActionButton)findViewById(R.id.fab_main_add);
+        if(floatingActionButton != null) {
+            floatingActionButton.setOnClickListener(mediaFragmentPagerAdapter.getMediaAddFABListener());
+        }
+
 
     }
 
@@ -46,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements FTPDownloader.OnD
         getMenuInflater().inflate(R.menu.menu_main, menu);
         MenuItem searchItem = menu.findItem(R.id.item_main_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(new SearchViewQueryTextListener(this, searchView));
+        searchView.setOnQueryTextListener(mediaFragmentPagerAdapter.getSearchViewTextQueryListener());
+        MenuItemCompat.setOnActionExpandListener(searchItem, mediaFragmentPagerAdapter.getSearchViewExpandListener());
         return true;
     }
 
@@ -63,8 +76,6 @@ public class MainActivity extends AppCompatActivity implements FTPDownloader.OnD
 
     @Override
     public void onDownloadDone() {
-        /**
-         * TODO Search for downloaded file and load the database
-         */
+
     }
 }
