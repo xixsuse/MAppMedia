@@ -1,6 +1,10 @@
 package rs.de.mappmedia.listeners;
 
+import rs.de.mappmedia.R;
 import rs.de.mappmedia.adapters.MediaFragmentPagerAdapter;
+import rs.de.mappmedia.database.models.Media;
+import rs.de.mappmedia.dialog.VersatileMediaDialog;
+import rs.de.mappmedia.fragments.MediaFragment;
 
 import android.support.v4.app.FragmentManager;
 import android.view.View;
@@ -30,6 +34,14 @@ public class MediaAddFABListener extends MediaFragmentPagerAdapter.MediaFragment
      */
     @Override
     public void onClick(View v) {
+        int mediaType = get(currentSelectedFragmentIndex).getArguments().getInt(MediaFragment.MEDIA_TYPE_KEY);
+        switch(mediaType) {
+            case Media.TYPE_MOVIE:
+                VersatileMediaDialog dialog = new VersatileMediaDialog(v.getContext());
+                dialog.setTitle(R.string.versatile_dialog_add_movie_title);
+                dialog.show(null);
+                break;
+        }
 
     }
 

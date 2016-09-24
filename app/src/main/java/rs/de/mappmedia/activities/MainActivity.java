@@ -23,6 +23,8 @@ import rs.de.mappmedia.util.Util;
 
 public class MainActivity extends AppCompatActivity implements FTPDownloadAsyncTask.OnStatusListener {
 
+    public static final String TAG = MainActivity.class.getSimpleName();
+
     private MediaFragmentPagerAdapter mediaFragmentPagerAdapter;
 
     @Override
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements FTPDownloadAsyncT
             floatingActionButton.setOnClickListener(mediaFragmentPagerAdapter.getMediaAddFABListener());
         }
 
+        DatabaseAccess.getInstance(this); //to load the instance of DatabaseAccess
 
     }
 
@@ -76,6 +79,22 @@ public class MainActivity extends AppCompatActivity implements FTPDownloadAsyncT
 
     @Override
     public void onDownloadDone() {
-
+        Log.d(TAG, "onDownloadDone");
     }
+
+    @Override
+    public void onDownloadFileFailed() {
+        Log.d(TAG, "onDownloadFileFailed");
+    }
+
+    @Override
+    public void onConnectionFailed() {
+        Log.d(TAG, "onConnectionFailed");
+    }
+
+    @Override
+    public void onFailDisconnect() {
+        Log.d(TAG, "onFailDisconnect");
+    }
+
 }

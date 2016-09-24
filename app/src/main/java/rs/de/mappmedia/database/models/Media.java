@@ -16,7 +16,10 @@ public abstract class Media {
     public static final long NOT_REGISTERED_ID = -1;
     public static final int NOT_REGISTERED_VALUE = -1;
 
-    public static final int SEARCH_TYPE_MOVIE = 0;
+    public static final int TYPE_MOVIE = 0;
+    public static final int[] ALL_TYPES = {
+        TYPE_MOVIE
+    };
 
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_TITLE = "title";

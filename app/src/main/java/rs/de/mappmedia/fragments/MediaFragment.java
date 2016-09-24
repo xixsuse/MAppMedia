@@ -23,12 +23,15 @@ import rs.de.mappmedia.database.models.Media;
 
 public class MediaFragment extends Fragment implements MediaListViewAdapter.OnUpdateListener {
 
-    private ListView mediaList;
+    public static final String MEDIA_TYPE_KEY = "key_media_type";
+
     private MediaListViewAdapter mediaListViewAdapter;
 
-    public static MediaFragment newInstance() {
+    public static MediaFragment newInstance(int mediaType) {
         MediaFragment fragment = new MediaFragment();
-
+        Bundle arguments = new Bundle();
+        arguments.putInt(MEDIA_TYPE_KEY, mediaType);
+        fragment.setArguments(arguments);
         return fragment;
     }
 
@@ -41,20 +44,20 @@ public class MediaFragment extends Fragment implements MediaListViewAdapter.OnUp
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View mainView = inflater.inflate(R.layout.fragment_media, container, false);
-        mediaList = (ListView) mainView.findViewById(R.id.listview_fragment_media_list);
+        ListView mediaList = (ListView) mainView.findViewById(R.id.listview_fragment_media_list);
+
         mediaListViewAdapter = new MediaListViewAdapter(getContext());
         mediaListViewAdapter.setUpdateListener(this);
         mediaList.setAdapter(mediaListViewAdapter);
+
         loadAllMediaItems();
         return mainView;
     }
 
     public boolean onSearchQuerySubmitEvent(String query) {
-        DatabaseAccess dbAccess = DatabaseAccess.getInstance(getContext());
-        dbAccess.open(true, null);
-        ArrayList<Media> resultMediaItems = dbAccess.searchMedia(query, Media.SEARCH_TYPE_MOVIE);
-        dbAccess.close();
-        mediaListViewAdapter.setResultMediaItems(resultMediaItems);
+        ArrayList<Media> mediaSearchResult = DatabaseAccess.localMediaSearch(query,
+                this.getArguments().getInt(MEDIA_TYPE_KEY));
+        mediaListViewAdapter.setResultMediaItems(mediaSearchResult);
         return false;
     }
 
@@ -64,13 +67,10 @@ public class MediaFragment extends Fragment implements MediaListViewAdapter.OnUp
     }
 
     private void loadAllMediaItems() {
-        DatabaseAccess dbAccess = DatabaseAccess.getInstance(getContext());
-        dbAccess.open(true, null);
-        ArrayList<Media> resultMediaItems = dbAccess.getAllMedia(Media.SEARCH_TYPE_MOVIE);
-        dbAccess.close();
-        mediaListViewAdapter.setResultMediaItems(resultMediaItems);
+        ArrayList<Media> allMediaResult = DatabaseAccess.localAllMedia(
+                this.getArguments().getInt(MEDIA_TYPE_KEY));
+        mediaListViewAdapter.setResultMediaItems(allMediaResult);
     }
-
 
     @Override
     public void onUpdate() {

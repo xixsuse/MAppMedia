@@ -4,8 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.io.File;
@@ -126,6 +124,40 @@ public class DatabaseAccess {
         }
         return false;
     }
+
+    /**
+     * Static wrapper method of searchMedia method.
+     *
+     * @param query - the query to search for
+     * @param mediaSearchType - the type of media to search for
+     * @return a list containing the media objects that fits the passed query and type
+     */
+    public static ArrayList<Media> localMediaSearch(String query, int mediaSearchType) {
+        ArrayList<Media> mediaSearchResult = null;
+        if(instance != null) {
+            instance.open(true, null);
+            mediaSearchResult = instance.searchMedia(query, mediaSearchType);
+            instance.close();
+        }
+        return mediaSearchResult;
+    }
+
+    /**
+     * Static wrapper method of getAllMedia method.
+     *
+     * @param mediaSearchType - the type of media to get all data from
+     * @return a list containing all media objects of the specified type
+     */
+    public static ArrayList<Media> localAllMedia(int mediaSearchType) {
+        ArrayList<Media> mediaSearchResult = null;
+        if(instance != null) {
+            instance.open(true, null);
+            mediaSearchResult = instance.getAllMedia(mediaSearchType);
+            instance.close();
+        }
+        return mediaSearchResult;
+    }
+
 
     /**
      * Opens a locally stored or external stored database.
@@ -252,7 +284,7 @@ public class DatabaseAccess {
         String[] whereArguments = DatabaseHelper.whereArguments(whereStatements, true);
         Cursor mediaCursor = null;
         switch(mediaSearchType) {
-            case Media.SEARCH_TYPE_MOVIE:
+            case Media.TYPE_MOVIE:
                 mediaCursor = database.query(Movie.TABLE_NAME, null, whereClause, whereArguments, null, null, Movie.COLUMN_TITLE);
                 mediaItems = Movie.buildList(mediaCursor);
                 break;
@@ -269,7 +301,7 @@ public class DatabaseAccess {
     public ArrayList<Media> getAllMedia(int mediaSearchType) {
         ArrayList<Media> mediaItems = null;
         switch(mediaSearchType) {
-            case Media.SEARCH_TYPE_MOVIE:
+            case Media.TYPE_MOVIE:
                 Cursor movieCursor = database.query(Movie.TABLE_NAME, null, null, null, null, null, Movie.COLUMN_TITLE);
                 mediaItems = Movie.buildList(movieCursor);
                 break;

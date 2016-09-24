@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import rs.de.mappmedia.database.models.Media;
 import rs.de.mappmedia.fragments.MediaFragment;
 import rs.de.mappmedia.listeners.MediaAddFABListener;
 import rs.de.mappmedia.listeners.SearchViewExpandListener;
@@ -46,12 +47,12 @@ public class MediaFragmentPagerAdapter extends FragmentPagerAdapter implements T
 
     @Override
     public Fragment getItem(int position) {
-        return MediaFragment.newInstance();
+        return MediaFragment.newInstance(Media.ALL_TYPES[position]);
     }
 
     @Override
     public int getCount() {
-        return 1;
+        return Media.ALL_TYPES.length;
     }
 
     @Override

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="main_media_add_dialog_type_array">
+    <string-array name="versatile_media_dialog_movie_types">
         <item>DVD</item>
         <item>BD</item>
-        <item>CD</item>
-        <item>Vinyl</item>
+        <item>BD &amp; 3D</item>
+        <item>3D</item>
+    </string-array>
+
+    <string-array name="versatile_media_dialog_all_age_restrictions">
+        <item>@string/versatile_dialog_no_age_restriction</item>
+        <item>0</item>
+        <item>6</item>
+        <item>12</item>
+        <item>16</item>
+        <item>18</item>
     </string-array>
 
 

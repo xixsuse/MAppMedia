@@ -4,7 +4,25 @@
     <string name="all_settings_title">Einstellungen</string>
 
     <string name="main_age_restriction_value">FSK %1$d</string>
+    <string name="versatile_dialog_no_age_restriction">k.A.</string>
     <string name="main_running_time_value">%1$d Minuten</string>
+
+    <string name="versatile_dialog_add_movie_title">Neuer Film</string>
+    <string name="versatile_dialog_edit_movie_title">Film editieren</string>
+
+    <string name="versatile_dialog_add_movie_pos_button">Anlegen</string>
+    <string name="versatile_dialog_edit_movie_pos_button">Bearbeiten</string>
+
+    <string name="versatile_dialog_neg_button">Abbrechen</string>
+
+    <string name="versatile_dialog_input_title">Titel</string>
+    <string name="versatile_dialog_input_type">Typ</string>
+    <string name="versatile_dialog_input_location">Ablageort</string>
+    <string name="versatile_dialog_input_artist">Künstler/Regisseur</string>
+    <string name="versatile_dialog_input_genre">Genre</string>
+    <string name="versatile_dialog_input_release_year">Jahr</string>
+    <string name="versatile_dialog_input_age_restriction">Altersfreigabe</string>
+    <string name="versatile_dialog_input_running_time">Laufzeit</string>
 
 
     <string name="main_preference_ftp_category_title">FTP-Einstellungen</string>
@@ -26,8 +44,5 @@
         Lädt die Zieldatei vom angegebenen FTP-Server herunter und lädt die Datenbank, sobald die Applikation gestartet wurde
     </string>
 
-
-    <string name="main_media_add_dialog_title">Neues Medium</string>
-    <string name="main_media_add_dialog_location_hint">Aufbewahrungsort</string>
 
 </resources>

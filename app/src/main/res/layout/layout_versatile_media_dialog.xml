@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_title"
+            android:text="@string/versatile_dialog_input_title"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edittext_input_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_type"
+            android:text="@string/versatile_dialog_input_type"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_input_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/versatile_media_dialog_movie_types"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_location"
+            android:text="@string/versatile_dialog_input_location"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+
+        <EditText
+            android:id="@+id/edittext_input_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_artist"
+            android:text="@string/versatile_dialog_input_artist"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edittext_input_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_genre"
+            android:text="@string/versatile_dialog_input_genre"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edittext_input_genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_release_year"
+            android:text="@string/versatile_dialog_input_release_year"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edittext_input_release_year"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_age_restriction"
+            android:text="@string/versatile_dialog_input_age_restriction"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_input_age_restriction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/versatile_media_dialog_all_age_restrictions"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_input_running_time"
+            android:text="@string/versatile_dialog_input_running_time"
+            android:textSize="15sp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edittext_input_running_time"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
