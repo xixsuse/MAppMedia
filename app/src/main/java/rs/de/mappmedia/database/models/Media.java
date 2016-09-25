@@ -14,7 +14,6 @@ public abstract class Media {
 
     public static final int NO_SUCH_COLUMN = -1;
     public static final long NOT_REGISTERED_ID = -1;
-    public static final int NOT_REGISTERED_VALUE = -1;
 
     public static final int TYPE_MOVIE = 0;
     public static final int[] ALL_TYPES = {
@@ -36,6 +35,7 @@ public abstract class Media {
             COLUMN_GENRE, COLUMN_RELEASE_YEAR, COLUMN_AGE_RESTRICTION, COLUMN_RUNNING_TIME
     };
 
+    public static final int NO_AGE_RESTRICTION = -1;
     public static final int AGE_RESTRICTION_0 = 0;
     public static final int AGE_RESTRICTION_6 = 6;
     public static final int AGE_RESTRICTION_12 = 12;
@@ -70,30 +70,31 @@ public abstract class Media {
             switch(currentColumnName) {
                 case COLUMN_ID:
                     id = data.getLong(columnIndex);
-                    break;
+                    return true;
                 case COLUMN_TITLE:
                     title = data.getString(columnIndex);
-                    break;
+                    return true;
                 case COLUMN_LOCATION:
                     location = data.getString(columnIndex);
-                    break;
+                    return true;
                 case COLUMN_TYPE:
                     type = data.getString(columnIndex);
-                    break;
+                    return true;
                 case COLUMN_GENRE:
                     genre = data.getString(columnIndex);
-                    break;
+                    return true;
                 case COLUMN_RELEASE_YEAR:
                     releaseYear = data.getInt(columnIndex);
-                    break;
+                    return true;
                 case COLUMN_AGE_RESTRICTION:
                     ageRestriction = data.getInt(columnIndex);
-                    break;
+                    return true;
                 case COLUMN_RUNNING_TIME:
                     runningTime = data.getInt(columnIndex);
-                    break;
+                    return true;
+                default:
+                    return false;
             }
-            return true;
         }
         return false;
     }

@@ -110,6 +110,22 @@ public class DatabaseAccess {
     }
 
     /**
+     * Static wrapper method of updateMedia method.
+     *
+     * @param media - the media to update
+     * @return whether or not the media was updated
+     */
+    public static boolean localMediaUpdate(Media media) {
+        if(instance != null) {
+            instance.open(true, null);
+            boolean updated = instance.updateMedia(media);
+            instance.close();
+            return updated;
+        }
+        return false;
+    }
+
+    /**
      * Static wrapper method of deleteMedia method.
      *
      * @param media - the media to delete

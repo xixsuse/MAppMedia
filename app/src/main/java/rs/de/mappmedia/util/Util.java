@@ -2,6 +2,8 @@ package rs.de.mappmedia.util;
 
 
 import rs.de.mappmedia.R;
+import rs.de.mappmedia.database.models.Media;
+
 import static rs.de.mappmedia.database.models.Media.AGE_RESTRICTION_0;
 import static rs.de.mappmedia.database.models.Media.AGE_RESTRICTION_6;
 import static rs.de.mappmedia.database.models.Media.AGE_RESTRICTION_12;
@@ -49,6 +51,22 @@ public final class Util {
                 break;
         }
         return color;
+    }
+
+    /**
+     * Tries to parse a string value to an integer and returns its value.
+     * If parsing to integer fails, the specified defaultValue is returned instead.
+     *
+     * @param value - the value to parse
+     * @param defaultValue - the value to return if something fails
+     * @return the parsed integer value
+     */
+    public static int parseInteger(String value, int defaultValue) {
+        try {
+            return Integer.parseInt(value);
+        } catch(NumberFormatException e) {
+            return defaultValue;
+        }
     }
 
 

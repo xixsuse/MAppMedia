@@ -3,7 +3,9 @@ package rs.de.mappmedia.listeners;
 import rs.de.mappmedia.R;
 import rs.de.mappmedia.adapters.MediaFragmentPagerAdapter;
 import rs.de.mappmedia.database.models.Media;
+import rs.de.mappmedia.database.models.Movie;
 import rs.de.mappmedia.dialog.VersatileMediaDialog;
+import rs.de.mappmedia.dialog.inputs.MovieValueFiller;
 import rs.de.mappmedia.fragments.MediaFragment;
 
 import android.support.v4.app.FragmentManager;
@@ -34,12 +36,15 @@ public class MediaAddFABListener extends MediaFragmentPagerAdapter.MediaFragment
      */
     @Override
     public void onClick(View v) {
-        int mediaType = get(currentSelectedFragmentIndex).getArguments().getInt(MediaFragment.MEDIA_TYPE_KEY);
+        MediaFragment mediaFragment = get(currentSelectedFragmentIndex);
+        int mediaType = mediaFragment.getArguments().getInt(MediaFragment.MEDIA_TYPE_KEY);
         switch(mediaType) {
             case Media.TYPE_MOVIE:
                 VersatileMediaDialog dialog = new VersatileMediaDialog(v.getContext());
                 dialog.setTitle(R.string.versatile_dialog_add_movie_title);
-                dialog.show(null);
+                dialog.setPositiveButton(R.string.versatile_dialog_add_movie_pos_button);
+                dialog.setNegativeButton(R.string.versatile_dialog_neg_button);
+                dialog.show(new MovieValueFiller(Movie.newInstance(), mediaFragment));
                 break;
         }
 

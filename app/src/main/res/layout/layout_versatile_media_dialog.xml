@@ -113,6 +113,7 @@
 
         <EditText
             android:id="@+id/edittext_input_artist"
+            android:minLines="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -136,10 +137,12 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/edittext_input_genre"
+        <Spinner
+            android:id="@+id/spinner_input_genre"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/versatile_media_dialog_movie_genres"/>
 
 
     </LinearLayout>

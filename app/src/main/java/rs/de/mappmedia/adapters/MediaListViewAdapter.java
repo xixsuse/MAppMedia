@@ -2,7 +2,6 @@ package rs.de.mappmedia.adapters;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import java.util.ArrayList;
 import rs.de.mappmedia.R;
 import rs.de.mappmedia.database.models.Media;
 import rs.de.mappmedia.listeners.MediaListViewItemListener;
+import rs.de.mappmedia.listeners.OnUpdateListener;
 import rs.de.mappmedia.util.Util;
 
 /**
@@ -50,6 +50,10 @@ public class MediaListViewAdapter extends BaseAdapter {
         this.updateListener = updateListener;
     }
 
+    public OnUpdateListener getUpdateListener() {
+        return updateListener;
+    }
+
     public void update() {
         if(updateListener != null) {
             updateListener.onUpdate();
@@ -77,6 +81,7 @@ public class MediaListViewAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.layout_media_list_item, parent, false);
         }
         convertView.setOnClickListener(itemListener);
+        convertView.setOnLongClickListener(itemListener);
 
         Media currentMediaItem = resultMediaItems.get(position);
         convertView.setTag(R.id.tag_media_item, currentMediaItem);
@@ -92,22 +97,23 @@ public class MediaListViewAdapter extends BaseAdapter {
 
         TextView mediaAgeRestrictionTextView = (TextView)convertView.findViewById(R.id.textview_media_age_restriction);
         int ageRestriction = currentMediaItem.getAgeRestriction();
-        mediaAgeRestrictionTextView.setTextColor(
-                ContextCompat.getColor(context, Util.interpretMediaAgeRestrictionValue(ageRestriction)));
-        mediaAgeRestrictionTextView.setText(String.format(context.getString(R.string.main_age_restriction_value), ageRestriction));
+        if(ageRestriction >= 0) {
+            mediaAgeRestrictionTextView.setTextColor(
+                    ContextCompat.getColor(context, Util.interpretMediaAgeRestrictionValue(ageRestriction)));
+            mediaAgeRestrictionTextView.setText(String.format(context.getString(R.string.main_age_restriction_value), ageRestriction));
+        } else {
+            mediaAgeRestrictionTextView.setText(R.string.all_no_value_set);
+        }
 
         TextView mediaRunningTimeTextView = (TextView)convertView.findViewById(R.id.textview_media_running_time);
         int runningTime = currentMediaItem.getRunningTime();
-        mediaRunningTimeTextView.setText(String.format(context.getString(R.string.main_running_time_value), runningTime));
+        if(runningTime > 0) {
+            mediaRunningTimeTextView.setText(String.format(context.getString(R.string.main_running_time_value), runningTime));
+        } else {
+            mediaRunningTimeTextView.setText(R.string.all_no_value_set);
+        }
 
         return convertView;
     }
-
-    public static interface OnUpdateListener {
-
-        public void onUpdate();
-
-    }
-
 
 }

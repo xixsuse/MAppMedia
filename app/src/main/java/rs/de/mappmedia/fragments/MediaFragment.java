@@ -13,6 +13,7 @@ import rs.de.mappmedia.R;
 import rs.de.mappmedia.adapters.MediaListViewAdapter;
 import rs.de.mappmedia.database.DatabaseAccess;
 import rs.de.mappmedia.database.models.Media;
+import rs.de.mappmedia.listeners.OnUpdateListener;
 
 /**
  * 2016 created by Rene
@@ -21,7 +22,7 @@ import rs.de.mappmedia.database.models.Media;
  * Class:      MediaFragment
  */
 
-public class MediaFragment extends Fragment implements MediaListViewAdapter.OnUpdateListener {
+public class MediaFragment extends Fragment implements OnUpdateListener {
 
     public static final String MEDIA_TYPE_KEY = "key_media_type";
 

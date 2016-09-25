@@ -15,7 +15,6 @@
 
         <TextView
             android:id="@+id/textview_media_title"
-            android:text="Hangover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -23,7 +22,6 @@
 
         <TextView
             android:id="@+id/textview_media_location"
-            android:text="Silberne Box 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"/>
@@ -37,7 +35,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -47,20 +45,19 @@
                 android:id="@+id/textview_media_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DVD/BD"/>
+                android:layout_gravity="right"/>
 
             <TextView
                 android:id="@+id/textview_media_age_restriction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FSK 12"/>
+                android:layout_gravity="right"/>
 
             <TextView
                 android:id="@+id/textview_media_running_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="96 min"
-                />
+                android:layout_gravity="right" />
 
         </LinearLayout>
 

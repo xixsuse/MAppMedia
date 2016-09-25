@@ -4,8 +4,8 @@
     <string name="all_settings_title">Einstellungen</string>
 
     <string name="main_age_restriction_value">FSK %1$d</string>
-    <string name="versatile_dialog_no_age_restriction">k.A.</string>
-    <string name="main_running_time_value">%1$d Minuten</string>
+    <string name="all_no_value_set">k.A.</string>
+    <string name="main_running_time_value">%1$d Min.</string>
 
     <string name="versatile_dialog_add_movie_title">Neuer Film</string>
     <string name="versatile_dialog_edit_movie_title">Film editieren</string>
@@ -23,6 +23,40 @@
     <string name="versatile_dialog_input_release_year">Jahr</string>
     <string name="versatile_dialog_input_age_restriction">Altersfreigabe</string>
     <string name="versatile_dialog_input_running_time">Laufzeit</string>
+
+    <string name="main_media_item_dialog_title">Optionen</string>
+    <string-array name="main_media_item_dialog_options">
+        <item>Bearbeiten</item>
+        <item>Löschen</item>
+    </string-array>
+
+    <string name="main_media_remove_dialog_title">Medium entfernen</string>
+    <string name="main_media_remove_dialog_message">Wollen Sie wirklich %1$s entfernen?</string>
+    <string name="main_media_remove_dialog_pos_button">Löschen</string>
+    <string name="main_media_remove_dialog_neg_button">Abbrechen</string>
+
+    <string-array name="versatile_media_dialog_movie_genres">
+        <item>@string/all_no_value_set</item>
+        <item>Abenteuer</item>
+        <item>Action</item>
+        <item>Biografie</item>
+        <item>Drama</item>
+        <item>Erotik</item>
+        <item>Fantasy</item>
+        <item>Horror</item>
+        <item>Komödie</item>
+        <item>Krieg</item>
+        <item>Kriminal</item>
+        <item>Liebe</item>
+        <item>Martial-Arts</item>
+        <item>Musik</item>
+        <item>Porno</item>
+        <item>Road</item>
+        <item>Sci-Fi</item>
+        <item>Sport</item>
+        <item>Thriller</item>
+        <item>Western</item>
+    </string-array>
 
 
     <string name="main_preference_ftp_category_title">FTP-Einstellungen</string>
