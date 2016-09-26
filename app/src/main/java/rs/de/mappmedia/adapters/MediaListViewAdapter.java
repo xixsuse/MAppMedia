@@ -5,6 +5,9 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Interpolator;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -112,6 +115,9 @@ public class MediaListViewAdapter extends BaseAdapter {
         } else {
             mediaRunningTimeTextView.setText(R.string.all_no_value_set);
         }
+
+        //slide in animation for the list view item and its content
+        convertView.startAnimation(AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left));
 
         return convertView;
     }

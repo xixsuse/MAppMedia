@@ -79,6 +79,11 @@ public class MediaListViewItemListener implements View.OnClickListener, View.OnL
         return true;
     }
 
+    /**
+     *
+     * @param context
+     * @param media
+     */
     @Override
     public void onEditSelected(Context context, Media media) {
         VersatileMediaDialog dialog = new VersatileMediaDialog(context);
@@ -91,6 +96,11 @@ public class MediaListViewItemListener implements View.OnClickListener, View.OnL
         }
     }
 
+    /**
+     *
+     * @param context
+     * @param media
+     */
     @Override
     public void onRemoveSelected(Context context, Media media) {
         RemoveDialog removeDialog = new RemoveDialog(context, media);

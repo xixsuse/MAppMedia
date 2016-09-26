@@ -16,8 +16,10 @@
     <string name="versatile_dialog_neg_button">Abbrechen</string>
 
     <string name="versatile_dialog_input_title">Titel</string>
+    <string name="versatile_dialog_input_title_error_hint">Titel eingeben</string>
     <string name="versatile_dialog_input_type">Typ</string>
     <string name="versatile_dialog_input_location">Ablageort</string>
+    <string name="versatile_dialog_input_location_error_hint">Ablageort eingeben</string>
     <string name="versatile_dialog_input_artist">Künstler/Regisseur</string>
     <string name="versatile_dialog_input_genre">Genre</string>
     <string name="versatile_dialog_input_release_year">Jahr</string>

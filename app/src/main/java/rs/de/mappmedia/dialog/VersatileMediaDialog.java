@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -136,10 +138,14 @@ public class VersatileMediaDialog  {
 
     private static class PositiveButtonListener implements View.OnClickListener {
 
+        private Animation errorAnimation;
+
         private VersatileMediaDialog vmd;
 
         private PositiveButtonListener(VersatileMediaDialog vmd) {
             this.vmd = vmd;
+            errorAnimation = AnimationUtils.makeInAnimation(vmd.dialog.getContext(), true);
+            errorAnimation.setInterpolator(vmd.dialog.getContext(), android.R.anim.bounce_interpolator);
         }
 
         @Override
@@ -148,27 +154,35 @@ public class VersatileMediaDialog  {
             if(inputsSet != ValueFiller.ALL_INPUTS_SET) {
                 if(!vmd.isInputSet(inputsSet, ValueFiller.TITLE_BIT)) {
                     vmd.titleEditText.setBackgroundColor(Color.RED);
+                    vmd.titleEditText.startAnimation(errorAnimation);
+                    vmd.titleEditText.setHint(R.string.versatile_dialog_input_title_error_hint);
                 }
                 if(!vmd.isInputSet(inputsSet, ValueFiller.TYPE_BIT)) {
                     vmd.typeSpinner.setBackgroundColor(Color.RED);
                 }
                 if(!vmd.isInputSet(inputsSet, ValueFiller.LOCATION_BIT)) {
                     vmd.locationEditText.setBackgroundColor(Color.RED);
+                    vmd.locationEditText.startAnimation(errorAnimation);
+                    vmd.locationEditText.setHint(R.string.versatile_dialog_input_location_error_hint);
                 }
                 if(!vmd.isInputSet(inputsSet, ValueFiller.ARTIST_BIT)) {
                     vmd.artistEditText.setBackgroundColor(Color.RED);
+                    vmd.artistEditText.startAnimation(errorAnimation);
                 }
                 if(!vmd.isInputSet(inputsSet, ValueFiller.GENRE_BIT)) {
                     vmd.genreSpinner.setBackgroundColor(Color.RED);
                 }
                 if(!vmd.isInputSet(inputsSet, ValueFiller.RELEASE_YEAR_BIT)) {
                     vmd.releaseYearEditText.setBackgroundColor(Color.RED);
+                    vmd.releaseYearEditText.startAnimation(errorAnimation);
                 }
                 if(!vmd.isInputSet(inputsSet, ValueFiller.AGE_RESTRICTION_BIT)) {
                     vmd.ageRestrictionSpinner.setBackgroundColor(Color.RED);
+                    vmd.ageRestrictionSpinner.startAnimation(errorAnimation);
                 }
                 if(!vmd.isInputSet(inputsSet, ValueFiller.RUNNING_TIME_BIT)) {
                     vmd.runningTimeEditText.setBackgroundColor(Color.RED);
+                    vmd.runningTimeEditText.startAnimation(errorAnimation);
                 }
             } else {
                 if(!vmd.valueFiller.isMediaStored()) {
